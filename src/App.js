@@ -10,8 +10,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <Action />
-        <AddOption />
         <Options />
+        <AddOption />
       </div>
     );
   }

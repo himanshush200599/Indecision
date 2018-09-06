@@ -4,8 +4,10 @@ export default class Options extends Component {
   render(){
     return(
       <div>
-        here goes Options component.
-        <Option />
+      {
+        this.props.options.map((option)=> <Option key={option} optionText={option} />)
+      }
+
       </div>
     );
 }

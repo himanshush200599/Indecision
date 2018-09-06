@@ -4,9 +4,9 @@ class Header extends Component {
     return(
       <div>
         <h1>
-         Indecision-App
+        {this.props.title}
         </h1>
-        <h3>Put your life in the hands of computer</h3>
+        <h3>{this.props.subtitle}</h3>
       </div>
     );
 }

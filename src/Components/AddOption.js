@@ -12,12 +12,8 @@ export default class AddOption extends Component {
     const option = e.target.elements.option.value.trim();
      //trim removes white spaces from string
      const error = this.props.handleAddOption(option);
-     this.setState(()=>{
-       return{
-         error //this is similar to error:error
-       }
-     })
-  }
+     this.setState(()=>({error}));
+  }//this is similar to error:error
   render(){
     return(
       <div>

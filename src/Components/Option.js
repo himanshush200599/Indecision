@@ -4,6 +4,13 @@ import React from 'react';
     return(
       <div>
       {props.optionText}
+      <button
+        onClick={(e)=>{
+          props.handleDeletesOption(props.optionText)}
+        }
+        >
+        Remove
+      </button>
       </div>
     );
 

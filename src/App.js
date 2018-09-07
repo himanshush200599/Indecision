@@ -4,11 +4,13 @@ import Header from './Components/Header';
 import Action from './Components/Action';
 import AddOption from './Components/AddOption';
 import Options from './Components/Options';
-
+//also we can pass default props toany componnet by defining by ComponentName.
+//defaultProps.
 class App extends Component {
   constructor(props){
     super(props);
     this.handleDeletesOptions = this.handleDeletesOptions.bind(this);
+    this.handleDeletesOption = this.handleDeletesOption.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.handlePick = this.handlePick.bind(this);
     this.state={
@@ -16,11 +18,15 @@ class App extends Component {
     }
   }
 handleDeletesOptions(){
-  this.setState(()=>{
-    return{
-    options:[]
-     }
-  });
+  this.setState(()=>({options:[] }));
+}
+handleDeletesOption(optionToRemove){
+  this.setState((prevState)=>({
+    options:prevState.options.filter((option)=>{
+      return optionToRemove!==option;
+    })
+  }));
+
 }
 handlePick(){
   const rand = Math.floor(Math.random()*this.state.options.length)
@@ -33,11 +39,7 @@ handleAddOption(option){
   else if (this.state.options.indexOf(option)>-1){
     return "This item all ready exists";
   }
-  this.setState((prevState)=>{
-    return{
-      options: prevState.options.concat([option])
-    };
-  });
+  this.setState((prevState)=>({options: prevState.options.concat([option])}));
 
 }
   render() {
@@ -50,7 +52,8 @@ handleAddOption(option){
         <Action hasOptions = {this.state.options.length>0}
           handlePick={this.handlePick}/>
         <Options options={this.state.options}
-          handleDeletesOptions={this.handleDeletesOptions} />
+          handleDeletesOptions={this.handleDeletesOptions}
+          handleDeletesOption={this.handleDeletesOption} />
         <AddOption handleAddOption={this.handleAddOption}/>
       </div>
     );

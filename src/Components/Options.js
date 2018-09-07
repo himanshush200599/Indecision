@@ -13,7 +13,11 @@ import Option from './Option';
       <div>
         <button onClick={props.handleDeletesOptions}>Remove All</button>
       {
-        props.options.map((option)=> <Option key={option} optionText={option} />)
+        props.options.map((option)=> (
+          <Option key={option}
+            optionText={option}
+            handleDeletesOption={props.handleDeletesOption}/>
+        ))
       }
 
       </div>

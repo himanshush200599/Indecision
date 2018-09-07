@@ -14,7 +14,26 @@ class App extends Component {
     this.handleAddOption = this.handleAddOption.bind(this);
     this.handlePick = this.handlePick.bind(this);
     this.state={
-      options :  ['banana','orange','apple']
+      options :  []
+    }
+  }
+  componentDidMount(){
+    try {
+      const json = localStorage.getItem("options");
+      const options = JSON.parse(json);
+      if(options){
+        this.setState(()=>({options:options}));
+      }
+
+    } catch (e) {
+      //if try block does notr run then catch block, will execute.
+    }
+
+  }
+  componentDidUpdate(prevProps,prevState){
+    if(prevState.options.length!==this.state.options.length){
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem("options",json);
     }
   }
 handleDeletesOptions(){

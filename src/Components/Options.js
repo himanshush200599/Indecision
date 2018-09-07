@@ -10,8 +10,10 @@ import Option from './Option';
 
 
     return(
+
       <div>
         <button onClick={props.handleDeletesOptions}>Remove All</button>
+        {props.options.length===0&&<p>Add items to get started</p>}
       {
         props.options.map((option)=> (
           <Option key={option}

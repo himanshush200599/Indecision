@@ -1,15 +1,14 @@
-import React,{Component} from 'react';
-class Action extends Component {
+import React from 'react';
+const Action = (props) => {
 
-  render(){
+
     return(
       <div>
-        <button onClick={this.props.handlePick}
-          disabled={!this.props.hasOptions}
+        <button onClick={props.handlePick}
+          disabled={!props.hasOptions}
           >What should i do?</button>
 
       </div>
     );
-}
 }
 export default Action;

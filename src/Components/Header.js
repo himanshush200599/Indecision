@@ -1,14 +1,14 @@
 import React ,{ Component } from 'react';
-class Header extends Component {
-  render(){
+const Header = (props) =>{
+
     return(
       <div>
         <h1>
-        {this.props.title}
+        {props.title}
         </h1>
-        <h3>{this.props.subtitle}</h3>
+        <h3>{props.subtitle}</h3>
       </div>
     );
-}
+
 }
 export default Header;

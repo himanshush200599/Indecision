@@ -23,7 +23,7 @@ handleDeletesOptions(){
   });
 }
 handlePick(){
-  const rand = Math.round(Math.random()*this.state.options.length)
+  const rand = Math.floor(Math.random()*this.state.options.length)
   alert(this.state.options[rand])
 }
 handleAddOption(option){

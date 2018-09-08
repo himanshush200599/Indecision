@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import 'normalize.css/normalize.css';
 import Header from './Components/Header';
 import Action from './Components/Action';
 import AddOption from './Components/AddOption';
 import Options from './Components/Options';
+import OptionModal from './Components/OptionModal';
 //also we can pass default props toany componnet by defining by ComponentName.
 //defaultProps.
 class App extends Component {
@@ -13,8 +15,10 @@ class App extends Component {
     this.handleDeletesOption = this.handleDeletesOption.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.handlePick = this.handlePick.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
     this.state={
-      options :  []
+      options :  [],
+      selectedOption:undefined
     }
   }
   componentDidMount(){
@@ -27,6 +31,7 @@ class App extends Component {
 
     } catch (e) {
       //if try block does notr run then catch block, will execute.
+      console.log("Your app is fail here.local stoage doesnot work well")
     }
 
   }
@@ -39,6 +44,9 @@ class App extends Component {
 handleDeletesOptions(){
   this.setState(()=>({options:[] }));
 }
+handleModalClose(){
+  this.setState(()=>({selectedOption:undefined}))
+}
 handleDeletesOption(optionToRemove){
   this.setState((prevState)=>({
     options:prevState.options.filter((option)=>{
@@ -49,7 +57,8 @@ handleDeletesOption(optionToRemove){
 }
 handlePick(){
   const rand = Math.floor(Math.random()*this.state.options.length)
-  alert(this.state.options[rand])
+  const option = this.state.options[rand];
+  this.setState(()=>({selectedOption:option}));
 }
 handleAddOption(option){
   if(!option){
@@ -68,13 +77,22 @@ handleAddOption(option){
     return (
       <div className="App">
         <Header title={title} subtitle = {subtitle} />
+        <div className="container">
+
         <Action hasOptions = {this.state.options.length>0}
           handlePick={this.handlePick}/>
+        <div className="widget">
         <Options options={this.state.options}
           handleDeletesOptions={this.handleDeletesOptions}
           handleDeletesOption={this.handleDeletesOption} />
         <AddOption handleAddOption={this.handleAddOption}/>
+        </div>
+        <OptionModal
+          selectedOption={this.state.selectedOption}
+          handleModalClose = {this.handleModalClose}
+           />
       </div>
+    </div>
     );
   }
 }

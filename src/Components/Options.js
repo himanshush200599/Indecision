@@ -12,12 +12,17 @@ import Option from './Option';
     return(
 
       <div>
-        <button onClick={props.handleDeletesOptions}>Remove All</button>
-        {props.options.length===0&&<p>Add items to get started</p>}
+        <div className="widget-header">
+        <h3 className='widget-header-h3'>Your Options</h3>
+        <button className='button buttonlink'
+           onClick={props.handleDeletesOptions}>Remove All</button>
+           </div>
+        {props.options.length===0&&<p className='widget-message'>Add items to get started</p>}
       {
-        props.options.map((option)=> (
+        props.options.map((option,index)=> (
           <Option key={option}
             optionText={option}
+            count={index+1}
             handleDeletesOption={props.handleDeletesOption}/>
         ))
       }

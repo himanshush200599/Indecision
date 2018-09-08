@@ -1,0 +1,165 @@
+
+body{
+  font-family: Halvetica,Arial,sans-serif;
+  background: #333745;
+  font-size: 16px;
+}
+h1{
+  font-size: 16px;
+}
+.header{
+  background: #20222b;
+  margin-bottom: 48px;
+  padding:16px 0;
+  color:white;
+}
+.headertitle{
+  font-size: 32px;
+  margin:0;
+}
+.headersubtitle{
+  color:#a5afd7;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+.container{
+  max-width: 600px;
+  margin:0 auto;
+  padding: 0 16px;
+}
+
+.big-button{
+  background: #8357c5;
+  border:none;
+  border-bottom: 6px solid #551a8b;
+  color:white;
+  font-weight: bold;
+  font-size: 32px;
+  width:100%;
+  margin-bottom: 48px;
+  padding:24px;
+}
+.big-button:disabled{
+  opacity:.4;
+}
+button{
+  cursor:pointer;
+}
+button:disabled{
+  cursor:default;
+}
+.button{
+  background: #8357c5;
+  border:none;
+  border-bottom: 3px solid #551a8b;
+  font-weight: 500;
+  padding:12px;
+}
+.buttonlink{
+  background: none;
+  border:none;
+  color:#a5afd7;
+  padding:0;
+}
+.widget-header{
+  background: #3c4251;
+  color:#a5afd7;
+  padding:20px;
+  display:flex;
+  justify-content: space-between;
+}
+.widget-header-h3{
+  margin: 0;
+}
+
+.widget{
+  background:#464b5e;
+  margin-bottom: 48px;
+}
+.widget-message{
+  display: flex;
+  justify-content: center;
+  color: #a5afd7;
+  padding: 16px;
+  margin: 0;
+  border-bottom: 1px solid #D8BFD8;
+}
+.option{
+  border-bottom: 1px solid #d8bfd8;
+  display: flex;
+  justify-content: space-between;
+  padding:32px 16px;
+}
+.optiontext{
+  color:white;
+  font-weight: 800;
+  word-break: break-all;
+}
+.add-option-error{
+  color:#a5afd7;
+  font-style: italic;
+  padding: 0 16px;
+  margin: 16px 0 0 0 ;
+}
+.add-option{
+  display: flex;
+  flex-direction: column;
+  padding:16px;
+
+}
+.add-option-input{
+  flex-grow: 1;
+  background: #20222b;
+  border:none;
+  border-bottom: 3px solid black;
+  margin:0 0 12px 0;
+  color:white;
+  padding:12px;
+}
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  background: #464b5e;
+  color: white;
+  max-width: 300px;
+  outline: none;
+  padding: 32px;
+  text-align: center;
+}
+
+.modaltitle {
+  margin: 0 0 16px 0;
+}
+
+.modalbody {
+  margin: 0 0 32px 0;
+  font-size: 2rem;
+  font-weight: 300;
+  word-break: break-all;
+}
+@media (min-width:450px) {
+  .add-option{
+    flex-direction: row;
+  }
+.add-option-input{
+  margin: 0 12px 0 0;
+}
+}

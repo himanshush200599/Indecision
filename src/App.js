@@ -25,13 +25,14 @@ class App extends Component {
     try {
       const json = localStorage.getItem("options");
       const options = JSON.parse(json);
-      if(options){
+      if(options){No internet
         this.setState(()=>({options:options}));
       }
 
     } catch (e) {
       //if try block does notr run then catch block, will execute.
       console.log("Your app is fail here.local stoage doesnot work well")
+      //it save from crash
     }
 
   }
